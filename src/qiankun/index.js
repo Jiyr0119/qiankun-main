@@ -3,11 +3,7 @@ import apps from './apps'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { Message } from 'element-ui'
-import {
-  registerMicroApps,
-  addGlobalUncaughtErrorHandler,
-  start
-} from 'qiankun'
+import { registerMicroApps, addGlobalUncaughtErrorHandler } from 'qiankun'
 
 /**
  * 注册微应用
@@ -16,7 +12,7 @@ import {
  */
 registerMicroApps(apps, {
   // qiankun 生命周期钩子 - 微应用加载前
-  beforeLoad: (app) => {
+  beforeLoad: app => {
     console.log('微应用加载前')
     // 加载微应用前，加载进度条
     NProgress.start()
@@ -24,7 +20,7 @@ registerMicroApps(apps, {
     return Promise.resolve()
   },
   // qiankun 生命周期钩子 - 微应用挂载后
-  afterMount: (app) => {
+  afterMount: app => {
     console.log('微应用加载后')
     // 加载微应用前，进度条加载完成
     NProgress.done()
@@ -36,7 +32,7 @@ registerMicroApps(apps, {
 /**
  * 添加全局的未捕获异常处理器
  */
-addGlobalUncaughtErrorHandler((event) => {
+addGlobalUncaughtErrorHandler(event => {
   console.error('qiankun报错', event)
   const { message: msg } = event
   // 加载失败时提示

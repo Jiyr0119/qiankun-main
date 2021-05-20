@@ -160,18 +160,36 @@ export const constantRoutes = [
   },
   // 微应用容器
   {
-    path: '/iframeBox/',
+    path: '/iframeBox',
+    redirect: '/iframeBox/iframeBox',
     component: Layout,
+    name: 'iframeBox',
+    meta: {
+      title: '乾坤',
+      icon: 'nested'
+    },
     children: [
       {
-        path: '/iframeBox/*',
+        path: '/iframeBox',
         name: 'microApp',
         component: () => import('@/views/microApp/index'),
         meta: { title: '微应用A', icon: 'form' }
+      },
+      {
+        path: '/iframeBox/about',
+        name: 'microAppB',
+        component: () => import('@/views/microApp/indexB'),
+        meta: { title: '微应用B', icon: 'form' }
+      },
+
+      {
+        path: '/iframeBox/detail',
+        name: 'microAppC',
+        component: () => import('@/views/microApp/indexC'),
+        meta: { title: '微应用C', icon: 'form' }
       }
     ]
   },
-
   // 微应用容器
   // {
   //   path: '/iframeBox/*',

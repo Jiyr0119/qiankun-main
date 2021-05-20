@@ -1,5 +1,5 @@
 <template>
-  <div id="micro-app">容器</div>
+  <div id="micro-app-detail">容器</div>
 </template>
 
 <script>
