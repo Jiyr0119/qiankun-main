@@ -14,24 +14,25 @@ const apps = [
     loader(loading) {
       console.log('匹配', loading)
     }
-  },
-  {
-    name: 'microApp-B',
-    entry: '//localhost:9528/',
-    container: '#micro-app-about',
-    activeRule: '/iframeBox/about',
-    loader(loading) {
-      console.log('匹配', loading)
-    }
-  },
-  {
-    name: 'microApp-C',
-    entry: '//localhost:9528/',
-    container: '#micro-app-detail',
-    activeRule: '/iframeBox/detail',
-    loader(loading) {
-      console.log('匹配', loading)
-    }
   }
+  // ,
+  // {
+  //   name: 'microApp-B',
+  //   entry: '//localhost:9528/',
+  //   container: '#micro-app-about',
+  //   activeRule: '/iframeBox/about',
+  //   loader(loading) {
+  //     console.log('匹配', loading)
+  //   }
+  // },
+  // {
+  //   name: 'microApp-C',
+  //   entry: '//localhost:9528/',
+  //   container: '#micro-app-detail',
+  //   activeRule: '/iframeBox/detail',
+  //   loader(loading) {
+  //     console.log('匹配', loading)
+  //   }
+  // }
 ]
 export default apps

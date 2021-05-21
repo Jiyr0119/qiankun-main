@@ -3,7 +3,12 @@ import apps from './apps'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { Message } from 'element-ui'
-import { registerMicroApps, addGlobalUncaughtErrorHandler } from 'qiankun'
+import {
+  registerMicroApps,
+  addGlobalUncaughtErrorHandler,
+  // runAfterFirstMounted,
+  initGlobalState
+} from 'qiankun'
 
 /**
  * 注册微应用
@@ -38,6 +43,19 @@ addGlobalUncaughtErrorHandler(event => {
   // 加载失败时提示
   if (msg && msg.includes('died in status LOADING_SOURCE_CODE')) {
     Message.error('微应用加载失败，请检查应用是否可运行')
+  }
+})
+
+const { onGlobalStateChange, setGlobalState } = initGlobalState({
+  user: 'qiankun'
+})
+
+onGlobalStateChange((value, prev) => console.log('[onGlobalStateChange - master]:', value, prev))
+
+setGlobalState({
+  ignore: 'master',
+  user: {
+    name: 'master'
   }
 })
 

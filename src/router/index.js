@@ -58,7 +58,7 @@ export const constantRoutes = [
   {
     path: '/example',
     component: Layout,
-    redirect: '/example/table',
+    // redirect: '/example/table',
     name: 'Example',
     meta: { title: 'Example', icon: 'example' },
     children: [
@@ -160,8 +160,8 @@ export const constantRoutes = [
   },
   // 微应用容器
   {
-    path: '/iframeBox',
-    redirect: '/iframeBox/iframeBox',
+    path: '/qiankun',
+    redirect: '/qiankun/iframeBox',
     component: Layout,
     name: 'iframeBox',
     meta: {
