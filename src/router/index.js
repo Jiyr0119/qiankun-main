@@ -161,7 +161,7 @@ export const constantRoutes = [
   // 微应用容器
   {
     path: '/qiankun',
-    redirect: '/qiankun/iframeBox',
+    redirect: '/qiankun/microApp',
     component: Layout,
     name: 'iframeBox',
     meta: {
@@ -170,20 +170,20 @@ export const constantRoutes = [
     },
     children: [
       {
-        path: '/iframeBox',
+        path: '/microApp',
         name: 'microApp',
         component: () => import('@/views/microApp/index'),
         meta: { title: '微应用A', icon: 'form' }
       },
       {
-        path: '/iframeBox/about',
+        path: '/microApp/about',
         name: 'microAppB',
         component: () => import('@/views/microApp/indexB'),
         meta: { title: '微应用B', icon: 'form' }
       },
 
       {
-        path: '/iframeBox/detail',
+        path: '/microApp/detail',
         name: 'microAppC',
         component: () => import('@/views/microApp/indexC'),
         meta: { title: '微应用C', icon: 'form' }

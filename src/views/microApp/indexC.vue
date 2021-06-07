@@ -36,7 +36,7 @@ export default {
     // }
     this.subApp = loadMicroApp({
       name: 'microApp-C',
-      entry: '//localhost:9528/iframeBox/detail',
+      entry: '//localhost:9628/microApp/detail',
       // container: this.$refs.microApp
       container: this.$refs.microApp
     })
