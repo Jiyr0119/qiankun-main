@@ -47,18 +47,20 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
-    }]
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/dashboard/index'),
+        meta: { title: 'Dashboard', icon: 'dashboard' }
+      }
+    ]
   },
 
   {
     path: '/example',
     component: Layout,
-    // redirect: '/example/table',
+    redirect: '/example/table',
     name: 'Example',
     meta: { title: 'Example', icon: 'example' },
     children: [
@@ -120,13 +122,15 @@ export const constantRoutes = [
             children: [
               {
                 path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+                component: () =>
+                  import('@/views/nested/menu1/menu1-2/menu1-2-1'),
                 name: 'Menu1-2-1',
                 meta: { title: 'Menu1-2-1' }
               },
               {
                 path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+                component: () =>
+                  import('@/views/nested/menu1/menu1-2/menu1-2-2'),
                 name: 'Menu1-2-2',
                 meta: { title: 'Menu1-2-2' }
               }
@@ -160,30 +164,31 @@ export const constantRoutes = [
   },
   // 微应用容器
   {
-    path: '/qiankun',
-    redirect: '/qiankun/microApp',
+    path: '/microApp',
+    // redirect: '/unit/microApp',
+    // redirect: '/microApp/index',
     component: Layout,
-    name: 'iframeBox',
+    // name: 'iframeBox',
     meta: {
       title: '乾坤',
       icon: 'nested'
     },
     children: [
       {
-        path: '/microApp',
+        path: '',
         name: 'microApp',
         component: () => import('@/views/microApp/index'),
         meta: { title: '微应用A', icon: 'form' }
       },
       {
-        path: '/microApp/about',
+        path: 'about',
         name: 'microAppB',
         component: () => import('@/views/microApp/indexB'),
         meta: { title: '微应用B', icon: 'form' }
       },
 
       {
-        path: '/microApp/detail',
+        path: 'detail',
         name: 'microAppC',
         component: () => import('@/views/microApp/indexC'),
         meta: { title: '微应用C', icon: 'form' }
@@ -202,11 +207,12 @@ export const constantRoutes = [
   { path: '*', redirect: '/404', hidden: true }
 ]
 
-const createRouter = () => new Router({
-  mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
-})
+const createRouter = () =>
+  new Router({
+    mode: 'history', // require service support
+    scrollBehavior: () => ({ y: 0 }),
+    routes: constantRoutes
+  })
 
 const router = createRouter()
 
