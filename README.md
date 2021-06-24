@@ -28,6 +28,13 @@ npm run dev
 
 This will automatically open http://localhost:9528
 
+
+## qian-kun 
+
+add qiankun type in env file 
+
+if VUE_APP_MICRO_TYPE = load Loadmicroapp is used as the loading method of micro application, otherwise, register microapps (load is recommended)
+
 ## Build
 
 ```bash

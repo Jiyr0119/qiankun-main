@@ -7,10 +7,10 @@ const apps = [
    */
   {
     name: 'microApp-A',
-    entry: '//localhost:9528/',
+    entry: '//localhost:9628',
     container: '#micro-app',
     // activeRule: getActiveRule('/iframeBox'),
-    activeRule: '/iframeBox',
+    activeRule: '/microApp',
     loader(loading) {
       console.log('匹配', loading)
     }

@@ -51,6 +51,15 @@ npm run dev
 
 浏览器访问 [http://localhost:9528](http://localhost:9528)
 
+
+## qian-kun 
+
+增加了qiankun的变量
+
+当VUE_APP_MICRO_TYPE = load时，微应用的加载方式使用loadMicroApp否则registerMicroApps（推荐使用load）
+
+
+
 ## 发布
 
 ```bash

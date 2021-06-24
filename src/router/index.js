@@ -162,49 +162,47 @@ export const constantRoutes = [
       }
     ]
   },
+  process.env.VUE_APP_MICRO_TYPE === 'load'
   // 微应用容器
-  {
-    path: '/microApp',
-    // redirect: '/unit/microApp',
-    // redirect: '/microApp/index',
-    component: Layout,
-    // name: 'iframeBox',
-    meta: {
-      title: '乾坤',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: '',
-        name: 'microApp',
-        component: () => import('@/views/microApp/index'),
-        meta: { title: '微应用A', icon: 'form' }
+    ? {
+      path: '/microApp',
+      component: Layout,
+      // name: 'microApp',
+      meta: {
+        title: '乾坤-load',
+        icon: 'nested'
       },
-      {
-        path: 'about',
-        name: 'microAppB',
-        component: () => import('@/views/microApp/indexB'),
-        meta: { title: '微应用B', icon: 'form' }
-      },
+      children: [
+        {
+          path: '',
+          name: 'microApp',
+          component: () => import('@/views/microApp/index'),
+          meta: { title: '微应用A', icon: 'form' }
+        },
+        {
+          path: 'about',
+          name: 'microAppB',
+          component: () => import('@/views/microApp/indexB'),
+          meta: { title: '微应用B', icon: 'form' }
+        },
 
-      {
-        path: 'detail',
-        name: 'microAppC',
-        component: () => import('@/views/microApp/indexC'),
-        meta: { title: '微应用C', icon: 'form' }
-      }
-    ]
-  },
+        {
+          path: 'detail',
+          name: 'microAppC',
+          component: () => import('@/views/microApp/indexC'),
+          meta: { title: '微应用C', icon: 'form' }
+        }
+      ]
+    }
   // 微应用容器
-  // {
-  //   path: '/iframeBox/*',
-  //   name: 'microApp',
-  //   component: () => import('@/views/microApp/index'),
-  //   meta: { title: '微应用A', icon: 'form' }
-  // },
+    : {
+      path: '/microApp/*',
+      name: 'microApp',
+      component: Layout
+    }
 
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  // // 404 page must be placed at the end !!!
+  // { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () =>

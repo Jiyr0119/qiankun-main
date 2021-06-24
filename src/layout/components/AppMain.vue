@@ -3,15 +3,27 @@
     <transition name="fade-transform" mode="out-in">
       <router-view :key="key" />
     </transition>
+
+    <div v-if="microType" id="micro-app" />
   </section>
 </template>
 
 <script>
+import { start } from 'qiankun'
 export default {
   name: 'AppMain',
   computed: {
     key() {
       return this.$route.path
+    },
+    microType() {
+      return process.env.VUE_APP_MICRO_TYPE !== 'load'
+    }
+  },
+  mounted() {
+    if (!window.isQiankunStart) {
+      window.isQiankunStart = true
+      start()
     }
   }
 }
@@ -25,7 +37,7 @@ export default {
   position: relative;
   overflow: hidden;
 }
-.fixed-header+.app-main {
+.fixed-header + .app-main {
   padding-top: 50px;
 }
 </style>

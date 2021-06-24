@@ -1,4 +1,4 @@
-// import apps from './apps'
+import apps from './apps'
 // 一个进度条插件
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -15,7 +15,7 @@ import {
  * 第一个参数 - 微应用的注册信息
  * 第二个参数 - 全局生命周期钩子
  */
-registerMicroApps([], {
+registerMicroApps(process.env.VUE_APP_MICRO_TYPE === 'load' ? [] : apps, {
   // qiankun 生命周期钩子 - 微应用加载前
   beforeLoad: app => {
     console.log('微应用加载前')
@@ -50,7 +50,9 @@ const { onGlobalStateChange, setGlobalState } = initGlobalState({
   user: 'qiankun'
 })
 
-onGlobalStateChange((value, prev) => console.log('[onGlobalStateChange - master]:', value, prev))
+onGlobalStateChange((value, prev) =>
+  console.log('[onGlobalStateChange - master]:', value, prev)
+)
 
 setGlobalState({
   ignore: 'master',

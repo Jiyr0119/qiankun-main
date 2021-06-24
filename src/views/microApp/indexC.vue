@@ -18,33 +18,19 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    // loadMicroApp({
-    //   name: 'microApp-A',
-    //   entry: '//localhost:9529',
-    //   container: '#micro-app' },)
-
-    console.log(
-      '--------------------节点monunted-----------------',
-      window.qiankunStarted,
-      document.querySelector('#micro-app'),
-      this.$refs.microApp
-    )
-    // start()
-    // if (!window.qiankunStarted) {
-    //   window.qiankunStarted = true
-    // start()
-    // }
-    this.subApp = loadMicroApp({
-      name: 'microApp-C',
-      entry: '//localhost:9628/microApp/detail',
-      // container: this.$refs.microApp
-      container: this.$refs.microApp
-    })
-    // this.subApp.mount()
+    if (!window.qiankunStarted) {
+      this.subApp = loadMicroApp({
+        name: 'microApp-A',
+        entry: '//localhost:9628',
+        // container: this.$refs.microApp
+        container: this.$refs.microApp
+      })
+    }
   },
   destroyed() {
-    // this.subApp.unmount()
+    this.subApp.unmount()
   },
+
   methods: {}
 }
 </script>

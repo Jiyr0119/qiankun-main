@@ -32,7 +32,38 @@ export default {
       'sidebar'
     ]),
     routes() {
-      return this.$router.options.routes
+      const routes = this.$router.options.routes
+      if (process.env.VUE_APP_MICRO_TYPE === 'load') {
+        return routes
+      } else {
+        return routes.concat([
+          {
+            path: '',
+            meta: {
+              title: '乾坤-register',
+              icon: 'nested'
+            },
+            children: [
+              {
+                path: '/microApp/test',
+                name: 'microApp',
+                meta: { title: '微应用A', icon: 'form' }
+              },
+              {
+                path: '/microApp/about',
+                name: 'microAppB',
+                meta: { title: '微应用B', icon: 'form' }
+              },
+
+              {
+                path: '/microApp/detail',
+                name: 'microAppC',
+                meta: { title: '微应用C', icon: 'form' }
+              }
+            ]
+          }
+        ])
+      }
     },
     activeMenu() {
       const route = this.$route
