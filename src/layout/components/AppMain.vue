@@ -4,12 +4,12 @@
       <router-view :key="key" />
     </transition>
 
-    <div v-if="microType" id="micro-app" />
+    <!-- <div v-if="microType" id="micro-app" /> -->
   </section>
 </template>
 
 <script>
-import { start } from 'qiankun'
+// import { start } from 'qiankun'
 export default {
   name: 'AppMain',
   computed: {
@@ -19,13 +19,14 @@ export default {
     microType() {
       return process.env.VUE_APP_MICRO_TYPE !== 'load'
     }
-  },
-  mounted() {
-    if (!window.isQiankunStart) {
-      window.isQiankunStart = true
-      start()
-    }
   }
+  // ,
+  // mounted() {
+  //   if (!window.isQiankunStart) {
+  //     window.isQiankunStart = true
+  //     start()
+  //   }
+  // }
 }
 </script>
 

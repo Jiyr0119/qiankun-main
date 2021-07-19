@@ -6,7 +6,8 @@
 // import start from '../../qiankun'
 import {
   // start,
-  loadMicroApp } from 'qiankun'
+  loadMicroApp
+} from 'qiankun'
 export default {
   components: {},
   data() {
@@ -21,9 +22,12 @@ export default {
     if (!window.qiankunStarted) {
       this.subApp = loadMicroApp({
         name: 'microApp-A',
-        entry: '//localhost:9628',
+        entry: '//localhost:9628/microApp/about/',
         // container: this.$refs.microApp
-        container: this.$refs.microApp
+        container: this.$refs.microApp,
+        props: {
+          lalal: 'test'
+        }
       })
     }
   },
